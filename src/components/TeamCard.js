@@ -150,9 +150,9 @@ const TeamCard = ({team}) => {
             </div>
 
             <div style={{ background: '#FFFFFF',padding: '16px', color: '#333' }}>
-                <p><strong>Stage:</strong> {team.stage}</p>
-                <p><strong>World Ranking:</strong>{team.ranking}</p>
-                <p><strong>Participations:</strong>{team.participations}</p>
+                <p><strong>Groep:</strong> {team.stage}</p>
+                <p><strong>Wereld ranking:</strong>{team.ranking}</p>
+                <p><strong>Deelnames:</strong>{team.participations}</p>
             </div>
         </div>
     );
@@ -162,7 +162,7 @@ function Host({isHost,fgcolor}){
     if (isHost)
         return <div className="wrapper">
             <div className="box" style={{marginTop:'50px'}}>
-                <p style={{textAlign:'left',color: fgcolor }}>Host country</p>
+                <p style={{textAlign:'left',color: fgcolor }}>Gastland</p>
              </div>
         </div>
     else
