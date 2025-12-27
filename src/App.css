@@ -2,4 +2,28 @@
   text-align: center;
 }
 
+img {
+    display: block;
+    margin-left: 0;
+}
+
+h2{
+    text-align: left;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.box {
+    flex: 1;
+}
+
+p{
+    color:#888;
+    font-size:0.8rem;
+    font-style:normal;
+}
+
+
 
