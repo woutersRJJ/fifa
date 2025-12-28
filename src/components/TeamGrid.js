@@ -3,27 +3,31 @@ import {useState} from "react";
 import InputModal from "./InputModal";
 import {firestoreDatabase} from "../services/firestore";
 import {FaPlus} from "react-icons/fa";
+import {toast, ToastContainer} from "react-toastify";
 
-const TeamGrid = ({teams,setTeams}) => {
+const TeamGrid = ({teams, setTeams}) => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [teamData, setTeamData] = useState(null);
 
     async function addTeamToDatabase(team) {
         if (!firestoreDatabase) return
-
         const newTeam = await firestoreDatabase.collection("teams").add(team);
+        console.log(newTeam);
+        toast.success("Team succesvol toegevoegd!");
     }
 
     const handleUserSubmit = (data) => {
         setTeamData(data);
         console.log("Team entered:", data);
-        addTeamToDatabase(data).then(r => console.log('Successfully added!'));
-        setTeams([...teams,data].sort((a, b) => a.country.localeCompare(b.country)));
+        console.log("Team entered:", teamData);
+        addTeamToDatabase(data).then(() => console.log('Successfully added!'));
+        setTeams([...teams, data].sort((a, b) => a.country.localeCompare(b.country)));
     };
 
     return (
         <>
             <div>
+                <ToastContainer/>
                 <h1>FIFA 2026 World Cup</h1>
                 <h2>{teams.length} Deelnemende landen</h2>
                 <FaPlus onClick={() => setModalOpen(true)}></FaPlus>
