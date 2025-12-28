@@ -14,11 +14,20 @@ import algeria from "../img/algeria.png";
 import belgie from "../img/belgie.png";
 import qatar from "../img/qatar.png";
 import schotland from "../img/schotland.png";
+import frankrijk from "../img/frankrijk.png";
+import engeland from "../img/engeland.png";
+import newzealand from "../img/newzealand.png";
 
 const TeamCard = ({team}) => {
 
     const calculateFgColor=function (country) {
         switch (country) {
+            case 'Nieuw Zeeland' || 'New Zealand':
+                return '#fff'
+            case 'Engeland' || 'engeland' || 'England' || 'england':
+                return '#000000';
+            case 'Frankrijk' || 'frankrijk' || 'France' || 'france':
+                return '#fff';
             case 'USA':
                 return '#fff';
             case 'Nederland' || 'nederland' || 'Netherlands' || 'netherlands':
@@ -45,11 +54,11 @@ const TeamCard = ({team}) => {
                 return '#000000';
             case 'Algerije' || 'algerije' || 'Algeria' || 'algeria' :
                 return '#000000'
-            case 'Belgium' || 'belgium' || 'België' || 'Belgie' || 'belgië'  || 'belgie' :
+            case 'België' || 'belgië' || 'Belgium' || 'belgium' :
                 return '#fff';
             case 'Qatar' || 'qatar'  :
                 return '#fff';
-            case 'Scotland' || 'scotland' || 'Schotland' || 'schotland' :
+            case 'Schotland' || 'schotland' || 'Scotland' || 'scotland':
                 return '#fff';
             default:
                 return null;
@@ -58,6 +67,12 @@ const TeamCard = ({team}) => {
 
     const calculateBgColor=function (country){
         switch(country){
+            case 'Nieuw Zeeland' || 'New Zealand':
+                return '#000000'
+            case 'Engeland' || 'engeland' || 'England' || 'england':
+                return '#FFFFFF';
+            case 'Frankrijk' || 'frankrijk' || 'France' || 'france':
+                return '#00418F';
             case 'USA':
                 return '#0326DE';
             case 'Nederland' || 'nederland' || 'Netherlands' || 'netherlands':
@@ -84,11 +99,11 @@ const TeamCard = ({team}) => {
                 return '#FFD600';
             case 'Algerije' || 'algerije' || 'Algeria' || 'algeria' :
                 return '#00A067'
-            case 'Belgium' || 'belgium' || 'België' || 'Belgie' || 'belgië'  || 'belgie' :
+            case 'België' || 'belgië' || 'Belgium' || 'belgium' :
                 return '#880029';
             case 'Qatar' || 'qatar'  :
                 return '#8D1B3D';
-            case 'Scotland' || 'scotland' || 'Schotland' || 'schotland':
+            case 'Schotland' || 'schotland' || 'Scotland' || 'scotland':
                 return '#1E1C71'
             default:
                 return null;
@@ -97,6 +112,12 @@ const TeamCard = ({team}) => {
 
     const calculateImage = function (country){
         switch (country) {
+            case 'Nieuw Zeeland' || 'New Zealand':
+                return newzealand
+            case 'Engeland' || 'engeland' || 'England' || 'england':
+                return engeland;
+            case 'Frankrijk' || 'frankrijk' || 'France' || 'france':
+                return frankrijk;
             case 'USA':
                 return USA;
             case 'Nederland':
@@ -115,7 +136,7 @@ const TeamCard = ({team}) => {
                 return uruguay;
             case 'Argentinië' || 'Argentinie' || 'Argentina' || 'argentina':
                 return argentinie;
-            case 'Colombië' || 'Colombie' || 'Colombia' || 'colombiaa':
+            case 'Colombië' || 'Colombie' || 'Colombia' || 'colombia':
                 return colombie;
             case 'Australië' || 'Australie' || 'Australia' || 'australia':
                 return australie;
@@ -123,11 +144,11 @@ const TeamCard = ({team}) => {
                 return ecuador;
             case 'Algerije' || 'algerije' || 'Algeria' || 'algeria':
                 return algeria;
-            case 'Belgium' || 'belgium' || 'België' || 'Belgie' || 'belgië'  || 'belgie' :
+            case 'België' || 'belgië' || 'Belgium' || 'belgium' :
                 return belgie;
             case 'Qatar' || 'qatar'  :
                 return qatar
-            case 'Scotland' || 'scotland' || 'Schotland' || 'schotland' :
+            case 'Schotland' || 'schotland' || 'Scotland' || 'scotland':
                 return schotland
             default:
                 return null;
@@ -143,13 +164,13 @@ const TeamCard = ({team}) => {
             fontFamily: 'Arial, sans-serif',
             background: calculateBgColor(team.country)
         }}>
-            <div style={{ height:'150.2px' ,  color: calculateFgColor(team.country), padding: '16px', textAlign: 'center' }}>
+            <div style={{ height:'150.2px' ,   color: calculateFgColor(team.country), padding: '16px', textAlign: 'center' }}>
                 <img src={calculateImage(team.country)} alt={`${team.country} Flag`} style={{ width: '40px', marginBottom: '8px' }} />
                 <Host isHost={team.host} fgcolor={calculateFgColor(team.country)}/>
                 <h2 style={{ margin: 0, fontSize: '1.1rem' }}>{team.country}</h2>
             </div>
 
-            <div style={{ background: '#FFFFFF',padding: '16px', color: '#333' }}>
+            <div style={{ background: '#FFFFFF',padding: '16px', color: '#333' ,borderTop:'0.5px ridge lightgrey' }}>
                 <p><strong>Groep:</strong> {team.stage}</p>
                 <p><strong>Wereld ranking:</strong>{team.ranking}</p>
                 <p><strong>Deelnames:</strong>{team.participations}</p>

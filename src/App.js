@@ -16,7 +16,7 @@ function App() {
         setTeams(result.docs.map(doc => ({...doc.data()})));
     }
 
-    return <TeamGrid teams={teams}/>
+    return <TeamGrid teams={teams} setTeams={setTeams}/>
 }
 
 export default App;
